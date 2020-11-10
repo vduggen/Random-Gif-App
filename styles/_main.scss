@@ -1,0 +1,9 @@
+$box-shadow: 0 0 14px #333;
+$box-shadow-hover: 0 0 14px #000000ee;
+
+@mixin d-flex($a, $j, $d: row) {
+	display: flex;
+	align-items: $a;
+	justify-content: $j;
+	flex-direction: $d;
+}

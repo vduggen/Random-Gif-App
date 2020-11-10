@@ -1,0 +1,164 @@
+@import "../../node_modules/nord/src/sass/nord.scss";
+@import "../main";
+
+#body {
+	background-color: $nord1;
+	width: 70%;
+	height: 85%;
+	margin: 0 auto;
+	border-radius: 8px;
+	box-shadow: $box-shadow;
+	@include d-flex(center, center, column);
+
+	h1 {
+		font: bold 3rem monospace;
+		color: yellow;
+	}
+
+	button {
+		width: 200px;
+		height: 45px;
+		background: transparent;
+		border: none;
+		border-radius: 4px;
+		border: 3px solid yellow;
+		color: yellow;
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
+		transition: ease-in-out 0.3s;
+		font-family: monospace;
+		font-weight: 500;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 0%;
+			border-radius: 0 0 150% 150%;
+			z-index: -1;
+
+			background: yellow;
+			transition: ease-in-out 0.3s;
+		}
+
+		&:hover {
+			color: #333;
+
+			&::before {
+				height: 190%;
+			}
+		}
+	}
+
+	#containerLoading {
+		width: 350px;
+		height: 350px;
+
+		@include d-flex(center, center);
+
+		span {
+			border: 8px solid #aaaa00;
+			width: 80px;
+			height: 80px;
+			border-radius: 50px;
+			border-top: 8px solid yellow;
+			animation: loading 1s linear infinite;
+		}
+	}
+
+	#containerGif {
+		width: 350px;
+		height: 350px;
+		margin: 2rem 0;
+		background-position: center center;
+		background-size: cover;
+		box-shadow: $box-shadow;
+		cursor: pointer;
+		transition: linear 0.3s;
+
+		&:hover {
+			transform: scale(1.1);
+			box-shadow: $box-shadow-hover;
+		}
+	}
+}
+
+@media (min-width: 300px) {
+	#body {
+		width: 95%;
+		height: 95%;
+
+		h1 {
+			text-align: center;
+		}
+
+		#containerGif {
+			width: 95%;
+		}
+	}
+}
+
+@media (min-width: 425px) {
+	#body {
+		width: 95%;
+		height: 95%;
+
+		h1 {
+			text-align: center;
+		}
+
+		#containerGif {
+			width: 350px;
+		}
+	}
+}
+
+@media (min-width: 540px) {
+	#body {
+		width: 85%;
+		height: 95%;
+	}
+}
+
+@media (min-width: 768px) {
+	#body {
+		width: 80%;
+		height: 95%;
+	}
+}
+
+@media (min-width: 992px) {
+	#body {
+		width: 700px;
+		height: 95%;
+	}
+}
+
+@media (min-width: 1200px) {
+	#body {
+		width: 800px;
+		height: 90%;
+	}
+}
+
+@keyframes loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(90deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	75% {
+		transform: rotate(270deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
